@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        function onbuttonclick(){
+            const currentValue = document.getElementById('demo').innerHTML;
+
+            console.log(currentValue);
+            const currValue = currentValue.split(" ")[1];
+            const newValue = parseInt(currValue) + 1;
+
+            document.getElementById('demo').innerHTML = "Counter " + newValue;
+        }
+    </script>
+</head>
+<body>
+    <button id="demo" onclick="onbuttonclick()">Counter 0</button>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!-- <!DOCTYPE html>
+<html>
+  <script>
+    function calculateSum() {
+      const a = document.getElementById("firstNumber").value;
+      const b = document.getElementById("SecondNumber").value; // Corrected id
+      const c = document.getElementById("sign").value;
+      var d;
+
+      if (c == '+') {
+        d = parseInt(a) + parseInt(b);
+      }
+      if (c == '-') {
+        d = parseInt(a) - parseInt(b);
+      }
+      if (c == '*') {
+        d = parseInt(a) * parseInt(b);
+      }
+      if (c == '/') {
+        d = parseInt(a) / parseInt(b);
+      }
+
+      document.getElementById("result").innerHTML = "After calculateSum: " + d;
+    }
+  </script>
+  <body>
+    <input id="firstNumber" type="text" placeholder="First Number">
+    <br>
+    <br>
+
+    <input id="SecondNumber" type="text" placeholder="Second Number">
+    <br>
+    <br>
+    <input id="sign" type="text" placeholder="Operation">
+    <br>
+    <br>
+    <button type="button" onclick="calculateSum()">Submit</button>
+    <br>
+    <br>
+    <div id="result"></div>
+  </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+  <script>
+    async function calculateSum() {
+      const a = document.getElementById("firstNumber").value;
+      const b = document.getElementById("SecondNumber").value;
+      const c = document.getElementById("sign").value;
+
+      try {
+        const response = await fetch(`http://localhost:3000/calculate?a=${a}&b=${b}`);
+        const result = await response.text();
+        document.getElementById("result").innerHTML = result;
+      } catch (error) {
+        console.error('Error:', error);
+        document.getElementById("result").innerHTML = 'Error occurred during calculation';
+      }
+    }
+  </script>
+  <body>
+    <input id="firstNumber" type="text" placeholder="First Number">
+    <br>
+    <br>
+    <input id="SecondNumber" type="text" placeholder="Second Number">
+    <br>
+    <br>
+    <input id="sign" type="text" placeholder="Operation">
+    <br>
+    <br>
+    <button type="button" onclick="calculateSum()">Submit</button>
+    <br>
+    <br>
+    <div id="result"></div>
+  </body>
+</html>
